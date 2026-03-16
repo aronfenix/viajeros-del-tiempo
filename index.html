@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viajeros del Tiempo · Biografías de la Edad Moderna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="site-header">
+    <div class="header-inner">
+      <button id="btn-home" class="logo-btn" aria-label="Volver al inicio">
+        <span class="logo-icon">📜</span>
+        <span class="logo-text">Viajeros del Tiempo</span>
+      </button>
+      <div class="header-right">
+        <div class="progress-ring" id="header-progress" title="Personajes explorados">
+          <svg viewBox="0 0 36 36" class="progress-svg">
+            <path class="progress-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="progress-fill" id="progress-fill" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <span class="progress-text" id="progress-text">0</span>
+        </div>
+        <button id="btn-theme" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+        <span class="header-sub">6º Primaria · CEIP Perú</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+
+    <!-- ========== VIEW: HOME ========== -->
+    <div id="view-home" class="view active">
+
+      <section class="hero">
+        <div class="hero-particles" aria-hidden="true">
+          <span class="hero-particle" style="left:8%;top:18%;animation-delay:0s">📜</span>
+          <span class="hero-particle" style="left:25%;top:65%;animation-delay:2.5s">🧭</span>
+          <span class="hero-particle" style="left:72%;top:25%;animation-delay:4s">✏️</span>
+          <span class="hero-particle" style="left:88%;top:68%;animation-delay:1.2s">🔭</span>
+          <span class="hero-particle" style="left:50%;top:78%;animation-delay:3.5s">👑</span>
+          <span class="hero-particle" style="left:12%;top:72%;animation-delay:5.5s">⚔️</span>
+          <span class="hero-particle" style="left:65%;top:12%;animation-delay:0.8s">🎨</span>
+          <span class="hero-particle" style="left:38%;top:30%;animation-delay:6s">📖</span>
+        </div>
+        <h1 class="hero-title" id="hero-title">
+          <span class="word-anim">Viajeros</span>
+          <span class="word-anim">del</span>
+          <span class="word-anim word-highlight">Tiempo</span>
+        </h1>
+        <p class="hero-subtitle">Biografías de la Edad Moderna</p>
+      </section>
+
+      <section class="intro-box">
+        <h2>¿De qué va este proyecto?</h2>
+        <p>Vas a convertirte en un <strong>investigador del pasado</strong>. Tu misión: elegir un personaje de la Edad Moderna, investigar su vida y presentarlo a tus compañeros.</p>
+        <p>Este proyecto mezcla <strong>Lengua</strong> (aprenderás a escribir una biografía) y <strong>Ciencias Sociales</strong> (conocerás personajes que cambiaron la historia). Al terminar, serás un experto en tu personaje.</p>
+
+        <div class="progress-home" id="progress-home">
+          <div class="progress-home-label">
+            <span>Tu progreso</span>
+            <strong id="progress-home-text">0 de 25 personajes explorados</strong>
+          </div>
+          <div class="progress-home-bar">
+            <div class="progress-home-fill" id="progress-home-fill" style="width:0%"></div>
+          </div>
+        </div>
+
+        <p>El trabajo tiene <strong>tres partes</strong>:</p>
+        <div class="work-parts">
+          <div class="work-card">
+            <span class="work-card-icon">✍️</span>
+            <strong>Biografía escrita</strong>
+            <span>120-180 palabras</span>
+          </div>
+          <div class="work-card">
+            <span class="work-card-icon">🖼️</span>
+            <strong>Ficha visual</strong>
+            <span>Para el pasillo</span>
+          </div>
+          <div class="work-card">
+            <span class="work-card-icon">🎤</span>
+            <strong>Exposición oral</strong>
+            <span>1 minuto</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="nav-cards">
+        <button class="nav-card" data-goto="personajes">
+          <span class="nav-card-emoji">🧭</span>
+          <span class="nav-card-title">Ver personajes</span>
+          <span class="nav-card-desc">25 personajes de la Edad Moderna para elegir</span>
+        </button>
+        <button class="nav-card" data-goto="instrucciones">
+          <span class="nav-card-emoji">📋</span>
+          <span class="nav-card-title">Instrucciones</span>
+          <span class="nav-card-desc">Qué hacer y cómo hacerlo paso a paso</span>
+        </button>
+        <button class="nav-card" data-goto="consejos">
+          <span class="nav-card-emoji">💡</span>
+          <span class="nav-card-title">Consejos</span>
+          <span class="nav-card-desc">Trucos para escribir y hablar en público</span>
+        </button>
+        <button class="nav-card nav-card-accent" data-goto="quiz">
+          <span class="nav-card-emoji">🎯</span>
+          <span class="nav-card-title">¿Quién soy?</span>
+          <span class="nav-card-desc">Pon a prueba tus conocimientos con pistas</span>
+        </button>
+        <button class="nav-card" data-goto="timeline">
+          <span class="nav-card-emoji">📅</span>
+          <span class="nav-card-title">Línea del tiempo</span>
+          <span class="nav-card-desc">Descubre quiénes fueron contemporáneos</span>
+        </button>
+        <button class="nav-card" data-goto="comparar">
+          <span class="nav-card-emoji">⚖️</span>
+          <span class="nav-card-title">Comparador</span>
+          <span class="nav-card-desc">Compara dos personajes lado a lado</span>
+        </button>
+      </section>
+
+      <footer class="home-footer">
+        <p>Proyecto de Semana Santa · Lengua + Ciencias Sociales · 6º Primaria</p>
+      </footer>
+    </div>
+
+    <!-- ========== VIEW: PERSONAJES (lista) ========== -->
+    <div id="view-personajes" class="view">
+      <div class="container">
+        <button class="btn-back" id="btn-back-personajes">← Volver al inicio</button>
+        <h2 class="section-title">🧭 Elige tu personaje</h2>
+        <p class="section-intro">Aquí tienes 25 personajes de la Edad Moderna. Haz clic en el que te interese para ver su ficha.</p>
+
+        <div class="search-bar" id="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="search" id="search-input" placeholder="Buscar por nombre, dato curioso, logro..." autocomplete="off" aria-label="Buscar personajes">
+          <button id="search-clear" class="search-clear" hidden aria-label="Borrar búsqueda">✕</button>
+        </div>
+
+        <div class="filter-bar" id="filter-bar">
+          <button class="filter-btn active" data-cat="todos">Todos</button>
+          <!-- Los demás botones se generan desde JS -->
+        </div>
+
+        <div class="personajes-tools">
+          <button class="btn-surprise" id="btn-surprise">🎲 ¡Sorpréndeme!</button>
+        </div>
+
+        <div class="personajes-grid" id="personajes-grid">
+          <!-- Se rellena desde JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== VIEW: PERSONAJE (detalle) ========== -->
+    <div id="view-personaje" class="view">
+      <div class="container">
+        <button class="btn-back" id="btn-back-personaje">← Volver a personajes</button>
+
+        <article class="personaje-detail" id="personaje-detail">
+          <!-- Se rellena desde JS -->
+        </article>
+
+        <nav class="personaje-nav" id="personaje-nav">
+          <button class="btn-nav" id="btn-prev-personaje" aria-label="Personaje anterior">← Anterior</button>
+          <button class="btn-nav btn-nav-home" id="btn-list-personaje">Ver todos</button>
+          <button class="btn-nav" id="btn-next-personaje" aria-label="Personaje siguiente">Siguiente →</button>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== VIEW: INSTRUCCIONES ========== -->
+    <div id="view-instrucciones" class="view">
+      <div class="container">
+        <button class="btn-back" id="btn-back-instrucciones">← Volver al inicio</button>
+        <h2 class="section-title">📋 Instrucciones del trabajo</h2>
+        <p class="section-intro">Tu trabajo tiene tres partes. Lee con atención qué se pide en cada una.</p>
+
+        <div class="instruc-card" style="--stripe-color: var(--clr-stripe-1)">
+          <div class="instruc-header">
+            <span class="instruc-icon">✍️</span>
+            <h3>Parte A: Biografía escrita</h3>
+          </div>
+          <div class="instruc-body">
+            <p>Escribe un texto de <strong>120 a 180 palabras</strong> sobre tu personaje. Debe ser una biografía: un texto que cuenta la vida de una persona real.</p>
+            <h4>Tu biografía debe responder a estas preguntas:</h4>
+            <ul>
+              <li>¿Quién era esta persona? (nombre, época, país)</li>
+              <li>¿Qué hizo de importante? (sus logros o descubrimientos)</li>
+              <li>¿Por qué es importante en la historia? (cómo cambió las cosas)</li>
+            </ul>
+            <h4>Formato:</h4>
+            <ul>
+              <li>Escrita a mano en folio o cuartilla (si tu profe lo permite, también puede ser a ordenador).</li>
+              <li>Buena presentación: letra clara, márgenes, sin tachones.</li>
+              <li>Pon tu nombre y curso arriba.</li>
+            </ul>
+            <div class="tip-box">
+              <strong>Recuerda:</strong> No copies de internet. Lee la información, cierra la página y escríbelo con tus propias palabras. Si no entiendes algo, pregúntalo. Copiar no es investigar.
+            </div>
+          </div>
+        </div>
+
+        <div class="instruc-card" style="--stripe-color: var(--clr-stripe-2)">
+          <div class="instruc-header">
+            <span class="instruc-icon">🖼️</span>
+            <h3>Parte B: Ficha visual para el pasillo</h3>
+          </div>
+          <div class="instruc-body">
+            <p>Prepara una ficha de <strong>medio folio</strong> (A5) que colgaremos en el pasillo del colegio para que todos puedan ver tu personaje.</p>
+            <h4>Tu ficha debe incluir:</h4>
+            <ul>
+              <li><strong>Nombre del personaje</strong> bien grande y claro.</li>
+              <li><strong>Fechas</strong> de nacimiento y muerte (aproximadas vale).</li>
+              <li><strong>Una imagen o dibujo:</strong> puede ser un dibujo tuyo, una imagen impresa o un retrato hecho con técnica libre.</li>
+              <li><strong>3-4 datos importantes</strong> sobre su vida, escritos en frases cortas.</li>
+            </ul>
+            <h4>Consejos para la ficha:</h4>
+            <ul>
+              <li>Usa colores para que sea atractiva.</li>
+              <li>Las letras deben ser grandes y legibles desde lejos.</li>
+              <li>No llenes todo de texto: deja espacio para la imagen.</li>
+              <li>Piensa que la va a leer alguien que no sabe nada de tu personaje.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instruc-card" style="--stripe-color: var(--clr-stripe-3)">
+          <div class="instruc-header">
+            <span class="instruc-icon">🎤</span>
+            <h3>Parte C: Exposición oral</h3>
+          </div>
+          <div class="instruc-body">
+            <p>Presentarás a tu personaje a la clase en una <strong>mini exposición de 1 minuto</strong> (máximo minuto y medio).</p>
+            <h4>Tu exposición debe incluir:</h4>
+            <ul>
+              <li>Quién era tu personaje y cuándo vivió.</li>
+              <li>Qué hizo de importante.</li>
+              <li>Un dato curioso o sorprendente que enganche a tus compañeros.</li>
+            </ul>
+            <h4>Importante:</h4>
+            <ul>
+              <li><strong>No leas</strong> un papel. Puedes tener unas notas cortas (unas pocas palabras clave), pero no leer un texto entero.</li>
+              <li>Mira a tus compañeros mientras hablas.</li>
+              <li>Habla alto y claro.</li>
+              <li>Practica en casa antes: cronométrate para no pasarte de tiempo.</li>
+            </ul>
+            <div class="tip-box">
+              <strong>Truco:</strong> Empieza con algo que llame la atención. Por ejemplo: "¿Sabíais que este personaje vivió 89 años en una época en la que la mayoría de la gente moría antes de los 40?"
+            </div>
+          </div>
+        </div>
+
+        <div class="instruc-card resumen-card" style="--stripe-color: var(--clr-accent)">
+          <div class="instruc-header">
+            <span class="instruc-icon">📅</span>
+            <h3>Resumen: ¿Qué entrego?</h3>
+          </div>
+          <div class="instruc-body">
+            <table class="resumen-tabla">
+              <thead>
+                <tr>
+                  <th>Parte</th>
+                  <th>Qué es</th>
+                  <th>Formato</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>A</strong></td>
+                  <td>Biografía escrita</td>
+                  <td>120-180 palabras, folio</td>
+                </tr>
+                <tr>
+                  <td><strong>B</strong></td>
+                  <td>Ficha visual</td>
+                  <td>Medio folio, con imagen</td>
+                </tr>
+                <tr>
+                  <td><strong>C</strong></td>
+                  <td>Exposición oral</td>
+                  <td>1 minuto, sin leer</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== VIEW: CONSEJOS ========== -->
+    <div id="view-consejos" class="view">
+      <div class="container">
+        <button class="btn-back" id="btn-back-consejos">← Volver al inicio</button>
+        <h2 class="section-title">💡 Consejos y trucos</h2>
+
+        <div class="instruc-card" style="--stripe-color: var(--clr-stripe-1)">
+          <div class="instruc-header">
+            <span class="instruc-icon">✍️</span>
+            <h3>Cómo escribir una buena biografía</h3>
+          </div>
+          <div class="instruc-body">
+            <h4>1. Empieza presentando al personaje</h4>
+            <p>Di su nombre, cuándo y dónde nació, y a qué se dedicaba. No hace falta que sea largo.</p>
+            <div class="example-box good">
+              <strong>Ejemplo:</strong> "Galileo Galilei fue un científico italiano que nació en Pisa en 1564. Estudió las estrellas y los planetas con un telescopio."
+            </div>
+            <h4>2. Cuenta lo más importante que hizo</h4>
+            <p>Elige los 2 o 3 logros más importantes y explícalos con claridad. No intentes contarlo todo: elige lo mejor.</p>
+            <h4>3. Explica por qué es importante</h4>
+            <p>¿Cómo cambió el mundo con lo que hizo? ¿Qué sería diferente si no hubiera existido?</p>
+            <h4>4. Termina con algo interesante</h4>
+            <p>Un dato curioso, una reflexión o algo que sorprenda al lector.</p>
+            <h4>5. Revisa tu texto</h4>
+            <ul>
+              <li>¿Se entiende bien?</li>
+              <li>¿Tiene entre 120 y 180 palabras?</li>
+              <li>¿Hay faltas de ortografía?</li>
+              <li>¿Está escrito con tus palabras, no copiado?</li>
+            </ul>
+            <div class="tip-box warning">
+              <strong>Cómo evitar copiar de internet:</strong>
+              <ol>
+                <li>Lee la información varias veces hasta entenderla.</li>
+                <li>Cierra la página web o el libro.</li>
+                <li>Escribe lo que recuerdas con tus propias palabras.</li>
+                <li>Después, comprueba que no te has equivocado en fechas o nombres.</li>
+              </ol>
+              <p>Si copias un texto de internet y lo pegas, se nota mucho. Las palabras no suenan a un alumno de 6º, y eso no demuestra que hayas aprendido nada.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="instruc-card" style="--stripe-color: var(--clr-stripe-3)">
+          <div class="instruc-header">
+            <span class="instruc-icon">🎤</span>
+            <h3>Consejos para hablar en público</h3>
+          </div>
+          <div class="instruc-body">
+            <div class="tips-grid">
+              <div class="tip-item"><span class="tip-num">1</span><div><strong>Mira a la clase</strong><p>No mires al suelo ni a la pared. Busca las caras de tus compañeros y reparte la mirada.</p></div></div>
+              <div class="tip-item"><span class="tip-num">2</span><div><strong>Habla alto y claro</strong><p>Imagina que le hablas a la persona que está más lejos. No susurres ni corras.</p></div></div>
+              <div class="tip-item"><span class="tip-num">3</span><div><strong>No leas, explica</strong><p>Usa notas con palabras clave, pero no leas un texto entero. Explícalo como si se lo contaras a un amigo.</p></div></div>
+              <div class="tip-item"><span class="tip-num">4</span><div><strong>Empieza fuerte</strong><p>Arranca con algo que llame la atención: una pregunta, un dato sorprendente o una frase impactante.</p></div></div>
+              <div class="tip-item"><span class="tip-num">5</span><div><strong>Practica en casa</strong><p>Ensaya delante del espejo o grábate con el móvil. Cronométrate para no pasarte de 1 minuto.</p></div></div>
+              <div class="tip-item"><span class="tip-num">6</span><div><strong>Los nervios son normales</strong><p>Todo el mundo se pone nervioso. Respira hondo antes de empezar. Cuanto más practiques, menos nervios tendrás.</p></div></div>
+            </div>
+            <div class="example-box bad">
+              <strong>Mal ejemplo:</strong> *Lee un papel sin levantar la vista* "Galileo nació en 1564 en Pisa Italia y fue un científico que hizo cosas importantes..." (aburrido, sin contacto visual)
+            </div>
+            <div class="example-box good">
+              <strong>Buen ejemplo:</strong> "¿Sabéis quién fue la primera persona en mirar a Júpiter con un telescopio? ¡Galileo! Y lo que vio le metió en un lío tremendo..." (engancha, mira a la clase)
+            </div>
+          </div>
+        </div>
+
+        <div class="instruc-card" style="--stripe-color: var(--clr-stripe-curiosidad)">
+          <div class="instruc-header">
+            <span class="instruc-icon">🌟</span>
+            <h3>Un último consejo</h3>
+          </div>
+          <div class="instruc-body">
+            <p>El objetivo de este trabajo no es solo sacar buena nota. Es que aprendas algo interesante sobre una persona que vivió hace siglos y que puedas contárselo a los demás de una forma clara y entretenida.</p>
+            <p><strong>Investiga con curiosidad, escribe con claridad y presenta con entusiasmo.</strong> Si haces eso, el trabajo saldrá genial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== VIEW: QUIZ ========== -->
+    <div id="view-quiz" class="view">
+      <div class="container">
+        <button class="btn-back" id="btn-back-quiz">← Volver al inicio</button>
+        <h2 class="section-title">🎯 ¿Quién soy?</h2>
+        <p class="section-intro">Lee las pistas y adivina de qué personaje se trata. Cuantas menos pistas necesites, más puntos consigues.</p>
+        <div id="quiz-container">
+          <div class="quiz-start" id="quiz-start">
+            <p class="quiz-start-text">Se elegirán <strong>10 personajes al azar</strong>. Recibirás pistas progresivas (de difícil a fácil). ¡Intenta adivinar con la primera!</p>
+            <div class="quiz-scoring">
+              <div class="quiz-score-item"><span class="quiz-score-pts">4 pts</span> Pista 1 (difícil)</div>
+              <div class="quiz-score-item"><span class="quiz-score-pts">3 pts</span> Pista 2</div>
+              <div class="quiz-score-item"><span class="quiz-score-pts">2 pts</span> Pista 3</div>
+              <div class="quiz-score-item"><span class="quiz-score-pts">1 pt</span> Pista 4 (fácil)</div>
+            </div>
+            <p class="quiz-highscore" id="quiz-highscore"></p>
+            <button class="btn-quiz-start" id="btn-quiz-start">¡Empezar!</button>
+          </div>
+          <div class="quiz-play" id="quiz-play" hidden>
+            <div class="quiz-header">
+              <span class="quiz-round" id="quiz-round">Ronda 1/10</span>
+              <span class="quiz-score" id="quiz-score">Puntos: 0</span>
+            </div>
+            <div class="quiz-clue-box" id="quiz-clue-box">
+              <div class="quiz-clue-label" id="quiz-clue-label">Pista 1 (4 pts)</div>
+              <p class="quiz-clue-text" id="quiz-clue-text"></p>
+              <button class="btn-quiz-clue" id="btn-quiz-clue">Necesito otra pista →</button>
+            </div>
+            <div class="quiz-options" id="quiz-options"></div>
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback" hidden></div>
+          <div class="quiz-results" id="quiz-results" hidden></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== VIEW: TIMELINE ========== -->
+    <div id="view-timeline" class="view">
+      <div class="container">
+        <button class="btn-back" id="btn-back-timeline">← Volver al inicio</button>
+        <h2 class="section-title">📅 Línea del tiempo</h2>
+        <p class="section-intro">Descubre cuándo vivió cada personaje y quiénes fueron contemporáneos.</p>
+
+        <div class="filter-bar" id="timeline-filter-bar">
+          <button class="filter-btn active" data-tl-cat="todos">Todos</button>
+        </div>
+
+        <div class="timeline-wrapper" id="timeline-wrapper">
+          <!-- Generated from JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== VIEW: COMPARAR ========== -->
+    <div id="view-comparar" class="view">
+      <div class="container">
+        <button class="btn-back" id="btn-back-comparar">← Volver al inicio</button>
+        <h2 class="section-title">⚖️ Compara personajes</h2>
+        <p class="section-intro">Elige dos personajes y compáralos lado a lado.</p>
+
+        <div class="compare-selectors">
+          <select id="compare-left" class="compare-select" aria-label="Primer personaje"></select>
+          <span class="compare-vs">VS</span>
+          <select id="compare-right" class="compare-select" aria-label="Segundo personaje"></select>
+        </div>
+
+        <div class="compare-table" id="compare-table">
+          <p class="section-intro">Selecciona dos personajes diferentes para compararlos.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="sprites.js"></script>
+  <script src="personajes.js"></script>
+  <script src="extras.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
