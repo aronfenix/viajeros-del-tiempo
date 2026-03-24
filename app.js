@@ -222,6 +222,7 @@
           role="button" tabindex="0" style="--card-color: ${info.colorVar};"
           aria-label="Abrir ficha de ${escapeHtml(p.nombre)}">
           ${avatarHtml}
+          ${p.adaptado ? '<span class="card-adaptado" title="Ficha adaptada">📘</span>' : ''}
           <h3 class="personaje-card-name">${escapeHtml(p.nombre)}</h3>
           <p class="personaje-card-dates">${escapeHtml(p.fechas)}</p>
           <p class="personaje-card-context">${escapeHtml(p.contexto)}</p>
@@ -344,6 +345,25 @@
         <div class="personaje-section-header"><span>💬</span><h3>Ideas para tu exposición</h3></div>
         <div class="personaje-section-body"><ul>${renderList(p.ideasExposicion)}</ul></div>
       </section>
+
+      ${p.adaptado ? `
+      <div class="adaptado-badge">📘 Ficha adaptada — con ayuda extra para tu trabajo</div>
+
+      <section class="personaje-section" style="--stripe-color: #3b82f6">
+        <div class="personaje-section-header"><span>📝</span><h3>Vocabulario clave</h3></div>
+        <div class="personaje-section-body"><ul>${renderList(p.vocabularioClave)}</ul></div>
+      </section>
+
+      <section class="personaje-section" style="--stripe-color: #10b981">
+        <div class="personaje-section-header"><span>💬</span><h3>Frases para empezar tu biografía</h3></div>
+        <div class="personaje-section-body"><ul>${renderList(p.frasesInicio)}</ul></div>
+      </section>
+
+      <section class="personaje-section" style="--stripe-color: #8b5cf6">
+        <div class="personaje-section-header"><span>📋</span><h3>Esquema para tu texto</h3></div>
+        <div class="personaje-section-body"><ul>${renderList(p.esquema)}</ul></div>
+      </section>
+      ` : ''}
 
       ${contempHtml}
 

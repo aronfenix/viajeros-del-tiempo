@@ -578,6 +578,97 @@ const PortraitGenerator = (() => {
       ctx.lineTo(fx + s * 0.09, fy - s * 0.09);
       ctx.closePath();
       ctx.fill();
+    },
+
+    compas(ctx, cx, cy, s, pal) {
+      const ax = cx + s * 0.28, ay = cy - s * 0.05;
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = s * 0.02;
+      // Hinge circle
+      ctx.fillStyle = '#94a3b8';
+      circle(ctx, ax, ay - s * 0.12, s * 0.025);
+      ctx.fill();
+      ctx.strokeStyle = '#475569';
+      circle(ctx, ax, ay - s * 0.12, s * 0.025);
+      ctx.stroke();
+      // Left leg
+      ctx.beginPath();
+      ctx.moveTo(ax, ay - s * 0.1);
+      ctx.lineTo(ax - s * 0.06, ay + s * 0.12);
+      ctx.stroke();
+      // Right leg
+      ctx.beginPath();
+      ctx.moveTo(ax, ay - s * 0.1);
+      ctx.lineTo(ax + s * 0.06, ay + s * 0.12);
+      ctx.stroke();
+      // Pencil tip on left leg
+      ctx.fillStyle = '#1e293b';
+      ctx.beginPath();
+      ctx.moveTo(ax - s * 0.06, ay + s * 0.12);
+      ctx.lineTo(ax - s * 0.07, ay + s * 0.15);
+      ctx.lineTo(ax - s * 0.05, ay + s * 0.12);
+      ctx.closePath();
+      ctx.fill();
+      // Point tip on right leg
+      ctx.fillStyle = '#94a3b8';
+      circle(ctx, ax + s * 0.06, ay + s * 0.13, s * 0.012);
+      ctx.fill();
+    },
+
+    violin(ctx, cx, cy, s, pal) {
+      const vx = cx + s * 0.28, vy = cy + s * 0.02;
+      ctx.strokeStyle = '#78350f';
+      ctx.lineWidth = s * 0.012;
+      ctx.fillStyle = '#d97706';
+      // Upper body
+      ctx.beginPath();
+      ctx.ellipse(vx, vy - s * 0.06, s * 0.04, s * 0.05, 0, 0, Math.PI * 2);
+      ctx.fill(); ctx.stroke();
+      // Lower body
+      ctx.beginPath();
+      ctx.ellipse(vx, vy + s * 0.06, s * 0.045, s * 0.055, 0, 0, Math.PI * 2);
+      ctx.fill(); ctx.stroke();
+      // Waist (narrowing)
+      ctx.fillStyle = '#d97706';
+      ctx.fillRect(vx - s * 0.025, vy - s * 0.02, s * 0.05, s * 0.04);
+      ctx.strokeStyle = '#78350f';
+      ctx.lineWidth = s * 0.01;
+      // Waist curves
+      ctx.beginPath();
+      ctx.moveTo(vx - s * 0.04, vy - s * 0.02);
+      ctx.quadraticCurveTo(vx - s * 0.02, vy, vx - s * 0.045, vy + s * 0.02);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(vx + s * 0.04, vy - s * 0.02);
+      ctx.quadraticCurveTo(vx + s * 0.02, vy, vx + s * 0.045, vy + s * 0.02);
+      ctx.stroke();
+      // Neck
+      ctx.fillStyle = '#92400e';
+      ctx.fillRect(vx - s * 0.01, vy - s * 0.15, s * 0.02, s * 0.06);
+      // Scroll
+      ctx.beginPath();
+      ctx.arc(vx, vy - s * 0.16, s * 0.015, 0, Math.PI, true);
+      ctx.stroke();
+      // Strings
+      ctx.strokeStyle = '#fef3c7';
+      ctx.lineWidth = s * 0.004;
+      for (let i = -1; i <= 1; i += 2) {
+        ctx.beginPath();
+        ctx.moveTo(vx + i * s * 0.01, vy - s * 0.1);
+        ctx.lineTo(vx + i * s * 0.012, vy + s * 0.09);
+        ctx.stroke();
+      }
+      // F-holes
+      ctx.strokeStyle = '#78350f';
+      ctx.lineWidth = s * 0.006;
+      ctx.beginPath();
+      ctx.moveTo(vx - s * 0.015, vy - s * 0.02);
+      ctx.quadraticCurveTo(vx - s * 0.025, vy, vx - s * 0.015, vy + s * 0.02);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(vx + s * 0.015, vy - s * 0.02);
+      ctx.quadraticCurveTo(vx + s * 0.025, vy, vx + s * 0.015, vy + s * 0.02);
+      ctx.stroke();
     }
   };
 

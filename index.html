@@ -64,29 +64,24 @@
         <div class="progress-home" id="progress-home">
           <div class="progress-home-label">
             <span>Tu progreso</span>
-            <strong id="progress-home-text">0 de 25 personajes explorados</strong>
+            <strong id="progress-home-text">0 de 75 personajes explorados</strong>
           </div>
           <div class="progress-home-bar">
             <div class="progress-home-fill" id="progress-home-fill" style="width:0%"></div>
           </div>
         </div>
 
-        <p>El trabajo tiene <strong>tres partes</strong>:</p>
+        <p>El trabajo tiene <strong>dos partes</strong>:</p>
         <div class="work-parts">
           <div class="work-card">
-            <span class="work-card-icon">✍️</span>
-            <strong>Biografía escrita</strong>
-            <span>120-180 palabras</span>
-          </div>
-          <div class="work-card">
-            <span class="work-card-icon">🖼️</span>
-            <strong>Ficha visual</strong>
-            <span>Para el pasillo</span>
+            <span class="work-card-icon">📖</span>
+            <strong>Folio-libro</strong>
+            <span>Portada + biografía (mín. 200 palabras)</span>
           </div>
           <div class="work-card">
             <span class="work-card-icon">🎤</span>
             <strong>Exposición oral</strong>
-            <span>1 minuto</span>
+            <span>1 minuto, sin leer</span>
           </div>
         </div>
       </section>
@@ -95,7 +90,7 @@
         <button class="nav-card" data-goto="personajes">
           <span class="nav-card-emoji">🧭</span>
           <span class="nav-card-title">Ver personajes</span>
-          <span class="nav-card-desc">25 personajes de la Edad Moderna para elegir</span>
+          <span class="nav-card-desc">75 personajes de la Edad Moderna para elegir</span>
         </button>
         <button class="nav-card" data-goto="instrucciones">
           <span class="nav-card-emoji">📋</span>
@@ -124,6 +119,27 @@
         </button>
       </section>
 
+      <section class="descargas-home">
+        <h2>📥 Documentos para el trabajo</h2>
+        <div class="descargas-grid">
+          <a href="docs/hoja-resumen.pdf" target="_blank" class="descarga-card">
+            <span class="descarga-icon">📋</span>
+            <strong>Hoja resumen</strong>
+            <span>Instrucciones del trabajo</span>
+          </a>
+          <a href="docs/folio-libro-guiado.pdf" target="_blank" class="descarga-card">
+            <span class="descarga-icon">📖</span>
+            <strong>Folio-libro (con indicaciones)</strong>
+            <span>Versión con ayuda para rellenar</span>
+          </a>
+          <a href="docs/folio-libro-alumno.pdf" target="_blank" class="descarga-card">
+            <span class="descarga-icon">📄</span>
+            <strong>Folio-libro (limpio)</strong>
+            <span>Versión en blanco para escribir</span>
+          </a>
+        </div>
+      </section>
+
       <footer class="home-footer">
         <p>Proyecto de Semana Santa · Lengua + Ciencias Sociales · 6º Primaria</p>
       </footer>
@@ -134,7 +150,7 @@
       <div class="container">
         <button class="btn-back" id="btn-back-personajes">← Volver al inicio</button>
         <h2 class="section-title">🧭 Elige tu personaje</h2>
-        <p class="section-intro">Aquí tienes 25 personajes de la Edad Moderna. Haz clic en el que te interese para ver su ficha.</p>
+        <p class="section-intro">Aquí tienes 75 personajes de la Edad Moderna. Haz clic en el que te interese para ver su ficha.</p>
 
         <div class="search-bar" id="search-bar">
           <span class="search-icon">🔍</span>
@@ -179,16 +195,27 @@
       <div class="container">
         <button class="btn-back" id="btn-back-instrucciones">← Volver al inicio</button>
         <h2 class="section-title">📋 Instrucciones del trabajo</h2>
-        <p class="section-intro">Tu trabajo tiene tres partes. Lee con atención qué se pide en cada una.</p>
+        <p class="section-intro">Tu trabajo tiene dos partes. Lee con atención qué se pide en cada una.</p>
 
         <div class="instruc-card" style="--stripe-color: var(--clr-stripe-1)">
           <div class="instruc-header">
-            <span class="instruc-icon">✍️</span>
-            <h3>Parte A: Biografía escrita</h3>
+            <span class="instruc-icon">📖</span>
+            <h3>Parte A: Folio-libro</h3>
           </div>
           <div class="instruc-body">
-            <p>Escribe un texto de <strong>120 a 180 palabras</strong> sobre tu personaje. Debe ser una biografía: un texto que cuenta la vida de una persona real.</p>
-            <h4>Tu biografía debe responder a estas preguntas:</h4>
+            <p>Tu profe te dará un <strong>folio doblado a modo de libro</strong>. Tiene dos partes:</p>
+
+            <h4>Portada (cara exterior):</h4>
+            <p>El folio ya tiene una estructura básica impresa. Tú tienes que completarla:</p>
+            <ul>
+              <li><strong>Nombre del personaje</strong> bien escrito y claro.</li>
+              <li><strong>Fechas</strong> de nacimiento y muerte.</li>
+              <li><strong>Un dibujo o decoración</strong> relacionada con el personaje (retrato, objetos, símbolos...).</li>
+              <li>Colorea y decora con cuidado para que quede bonita.</li>
+            </ul>
+
+            <h4>Interior (biografía escrita):</h4>
+            <p>Dentro del folio-libro, escribe una biografía de <strong>mínimo 200 palabras</strong> sobre tu personaje.</p>
             <ul>
               <li>¿Quién era esta persona? (nombre, época, país)</li>
               <li>¿Qué hizo de importante? (sus logros o descubrimientos)</li>
@@ -196,9 +223,8 @@
             </ul>
             <h4>Formato:</h4>
             <ul>
-              <li>Escrita a mano en folio o cuartilla (si tu profe lo permite, también puede ser a ordenador).</li>
-              <li>Buena presentación: letra clara, márgenes, sin tachones.</li>
-              <li>Pon tu nombre y curso arriba.</li>
+              <li>Escrita a mano con buena letra, sin tachones.</li>
+              <li>Pon tu nombre y curso donde te indique el folio.</li>
             </ul>
             <div class="tip-box">
               <strong>Recuerda:</strong> No copies de internet. Lee la información, cierra la página y escríbelo con tus propias palabras. Si no entiendes algo, pregúntalo. Copiar no es investigar.
@@ -206,34 +232,10 @@
           </div>
         </div>
 
-        <div class="instruc-card" style="--stripe-color: var(--clr-stripe-2)">
-          <div class="instruc-header">
-            <span class="instruc-icon">🖼️</span>
-            <h3>Parte B: Ficha visual para el pasillo</h3>
-          </div>
-          <div class="instruc-body">
-            <p>Prepara una ficha de <strong>medio folio</strong> (A5) que colgaremos en el pasillo del colegio para que todos puedan ver tu personaje.</p>
-            <h4>Tu ficha debe incluir:</h4>
-            <ul>
-              <li><strong>Nombre del personaje</strong> bien grande y claro.</li>
-              <li><strong>Fechas</strong> de nacimiento y muerte (aproximadas vale).</li>
-              <li><strong>Una imagen o dibujo:</strong> puede ser un dibujo tuyo, una imagen impresa o un retrato hecho con técnica libre.</li>
-              <li><strong>3-4 datos importantes</strong> sobre su vida, escritos en frases cortas.</li>
-            </ul>
-            <h4>Consejos para la ficha:</h4>
-            <ul>
-              <li>Usa colores para que sea atractiva.</li>
-              <li>Las letras deben ser grandes y legibles desde lejos.</li>
-              <li>No llenes todo de texto: deja espacio para la imagen.</li>
-              <li>Piensa que la va a leer alguien que no sabe nada de tu personaje.</li>
-            </ul>
-          </div>
-        </div>
-
         <div class="instruc-card" style="--stripe-color: var(--clr-stripe-3)">
           <div class="instruc-header">
             <span class="instruc-icon">🎤</span>
-            <h3>Parte C: Exposición oral</h3>
+            <h3>Parte B: Exposición oral</h3>
           </div>
           <div class="instruc-body">
             <p>Presentarás a tu personaje a la clase en una <strong>mini exposición de 1 minuto</strong> (máximo minuto y medio).</p>
@@ -273,16 +275,11 @@
               <tbody>
                 <tr>
                   <td><strong>A</strong></td>
-                  <td>Biografía escrita</td>
-                  <td>120-180 palabras, folio</td>
+                  <td>Folio-libro</td>
+                  <td>Portada decorada + biografía (mín. 200 palabras)</td>
                 </tr>
                 <tr>
                   <td><strong>B</strong></td>
-                  <td>Ficha visual</td>
-                  <td>Medio folio, con imagen</td>
-                </tr>
-                <tr>
-                  <td><strong>C</strong></td>
                   <td>Exposición oral</td>
                   <td>1 minuto, sin leer</td>
                 </tr>
@@ -319,7 +316,7 @@
             <h4>5. Revisa tu texto</h4>
             <ul>
               <li>¿Se entiende bien?</li>
-              <li>¿Tiene entre 120 y 180 palabras?</li>
+              <li>¿Tiene al menos 200 palabras?</li>
               <li>¿Hay faltas de ortografía?</li>
               <li>¿Está escrito con tus palabras, no copiado?</li>
             </ul>
@@ -332,6 +329,24 @@
                 <li>Después, comprueba que no te has equivocado en fechas o nombres.</li>
               </ol>
               <p>Si copias un texto de internet y lo pegas, se nota mucho. Las palabras no suenan a un alumno de 6º, y eso no demuestra que hayas aprendido nada.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="instruc-card" style="--stripe-color: var(--clr-stripe-2)">
+          <div class="instruc-header">
+            <span class="instruc-icon">📖</span>
+            <h3>Consejos para la portada del folio-libro</h3>
+          </div>
+          <div class="instruc-body">
+            <ul>
+              <li><strong>Escribe el nombre del personaje</strong> con letra grande y clara.</li>
+              <li><strong>Haz un dibujo</strong> relacionado: un retrato, un objeto representativo o una escena de su vida.</li>
+              <li><strong>Usa colores</strong> para que la portada sea atractiva y llame la atención.</li>
+              <li><strong>Cuida los detalles:</strong> no dejes espacios en blanco sin decorar, pero tampoco llenes todo.</li>
+            </ul>
+            <div class="tip-box">
+              <strong>Idea:</strong> Busca en la ficha del personaje su accesorio o símbolo para inspirarte (corona, telescopio, pincel, pluma...).
             </div>
           </div>
         </div>
