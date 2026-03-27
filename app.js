@@ -266,6 +266,8 @@
     const portraitHtml = portraitUrl
       ? `<div class="personaje-hero-avatar"><img src="${portraitUrl}" alt="Retrato de ${escapeHtml(p.nombre)}" width="120" height="120"></div>`
       : `<div class="personaje-hero-emoji" style="font-size:3.5rem">${escapeHtml(p.emoji || '📘')}</div>`;
+    const sceneUrl = `images/scenes/p${p.id}.jpg`;
+    const sceneHtml = `<div class="personaje-scene"><img src="${sceneUrl}" alt="Escena alegórica de ${escapeHtml(p.nombre)}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`;
 
     // Life bar calculation
     const TL = Extras.Timeline || { YEAR_START: 1390, YEAR_END: 1840 };
@@ -299,6 +301,7 @@
     }
 
     refs.detail.innerHTML = `
+      ${sceneHtml}
       <header class="personaje-hero">
         ${portraitHtml}
         <h2>${escapeHtml(p.nombre)}</h2>
