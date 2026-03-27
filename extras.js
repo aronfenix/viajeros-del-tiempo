@@ -139,7 +139,8 @@ const ViajerosExtras = (() => {
         clue: this._getClue(personaje, this.state.currentClue),
         options: this._getOptions(personaje),
         score: this.state.score,
-        maxPossible: this.state.maxScore
+        maxPossible: this.state.maxScore,
+        personajeId: personaje.id
       };
     },
 

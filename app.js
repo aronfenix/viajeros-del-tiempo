@@ -463,6 +463,20 @@
     if (refs.quizClueText) refs.quizClueText.textContent = round.clue;
     if (refs.btnQuizClue) refs.btnQuizClue.hidden = round.clueNum >= 3;
 
+    // Escena con revelación progresiva según pistas usadas
+    const sceneEl = document.getElementById('quiz-scene');
+    const hintEl  = document.getElementById('quiz-scene-hint');
+    const blurs  = [22, 13, 5, 0];
+    const darks  = [0.35, 0.5, 0.7, 1.0];
+    if (sceneEl && round.personajeId) {
+      sceneEl.style.backgroundImage = `url('images/scenes/p${round.personajeId}.jpg')`;
+      sceneEl.style.filter = `blur(${blurs[round.clueNum]}px) brightness(${darks[round.clueNum]})`;
+    }
+    if (hintEl) {
+      const hints = ['🔍 Muy cifrada — 4 pts si aciertas', '👁️ Un poco más clara — 3 pts', '🌤️ Casi visible — 2 pts', '✅ Imagen completa — 1 pt'];
+      hintEl.textContent = hints[round.clueNum];
+    }
+
     if (refs.quizPlay) refs.quizPlay.hidden = false;
     if (refs.quizFeedback) refs.quizFeedback.hidden = true;
 
@@ -488,10 +502,17 @@
 
     // Show feedback after brief delay
     setTimeout(() => {
+      // Revela imagen al responder
+      const sceneEl = document.getElementById('quiz-scene');
+      if (sceneEl) sceneEl.style.filter = 'blur(0px) brightness(1)';
+
       if (refs.quizPlay) refs.quizPlay.hidden = true;
       if (refs.quizFeedback) {
         refs.quizFeedback.hidden = false;
         refs.quizFeedback.innerHTML = `
+          <div class="quiz-feedback-scene" style="background-image:url('images/scenes/p${result.correctId}.jpg')">
+            <div class="quiz-feedback-scene-overlay ${result.correct ? 'correct' : 'wrong'}"></div>
+          </div>
           <div class="quiz-feedback-icon">${result.correct ? '✅' : '❌'}</div>
           <div class="quiz-feedback-text" style="color:${result.correct ? '#10b981' : '#ef4444'}">
             ${result.correct ? `¡Correcto! +${result.points} puntos` : 'Incorrecto'}
