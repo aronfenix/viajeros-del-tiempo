@@ -641,19 +641,23 @@
     const p1 = data.p1, p2 = data.p2;
     const img1 = getPortrait(getPersonajeById(id1), 64);
     const img2 = getPortrait(getPersonajeById(id2), 64);
+    const scene1 = `images/scenes/p${id1}.jpg`;
+    const scene2 = `images/scenes/p${id2}.jpg`;
 
     refs.compareTable.innerHTML = `
+      <div class="compare-banner">
+        <div class="compare-banner-half compare-banner-left"  style="background-image:url('${scene1}')"></div>
+        <div class="compare-banner-half compare-banner-right" style="background-image:url('${scene2}')"></div>
+        <div class="compare-banner-overlay"></div>
+        <div class="compare-banner-names">
+          <span class="compare-banner-name1">${escapeHtml(p1.nombre)}</span>
+          <div class="compare-banner-vs">VS</div>
+          <span class="compare-banner-name2">${escapeHtml(p2.nombre)}</span>
+        </div>
+        ${img1 ? `<div class="compare-banner-avatar compare-banner-avatar1"><img src="${img1}" alt="" width="72" height="72"></div>` : ''}
+        ${img2 ? `<div class="compare-banner-avatar compare-banner-avatar2"><img src="${img2}" alt="" width="72" height="72"></div>` : ''}
+      </div>
       <div class="compare-grid">
-        <div class="compare-row">
-          <div class="compare-cell">${img1 ? `<div class="compare-avatar"><img src="${img1}" alt="" width="64" height="64"></div>` : ''}</div>
-          <div class="compare-label">Retrato</div>
-          <div class="compare-cell">${img2 ? `<div class="compare-avatar"><img src="${img2}" alt="" width="64" height="64"></div>` : ''}</div>
-        </div>
-        <div class="compare-row">
-          <div class="compare-cell"><span class="compare-name">${escapeHtml(p1.nombre)}</span></div>
-          <div class="compare-label">Nombre</div>
-          <div class="compare-cell"><span class="compare-name">${escapeHtml(p2.nombre)}</span></div>
-        </div>
         <div class="compare-row">
           <div class="compare-cell"><span class="compare-value">${escapeHtml(p1.fechas)}</span></div>
           <div class="compare-label">Fechas</div>
