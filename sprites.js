@@ -4,26 +4,17 @@
 const PortraitGenerator = (() => {
   'use strict';
 
-  // Retratos AI generados con FLUX — tienen prioridad sobre el canvas
-  const STATIC_PORTRAITS = {
-    2:  'images/portraits/p2.jpg',   // Isabel I de Castilla
-    3:  'images/portraits/p3.jpg',   // Cristóbal Colón
-    4:  'images/portraits/p4.jpg',   // Leonardo da Vinci
-    5:  'images/portraits/p5.jpg',   // Nicolás Copérnico
-    6:  'images/portraits/p6.jpg',   // Miguel Ángel
-    9:  'images/portraits/p9.jpg',   // Martín Lutero
-    15: 'images/portraits/p15.jpg',  // Miguel de Cervantes
-    16: 'images/portraits/p16.jpg',  // Galileo Galilei
-    20: 'images/portraits/p20.jpg',  // Rembrandt
-    22: 'images/portraits/p22.jpg',  // Isaac Newton
-    49: 'images/portraits/p49.jpg',  // Voltaire
-    58: 'images/portraits/p58.jpg',  // Wolfgang Amadeus Mozart
-    61: 'images/portraits/p61.jpg',  // Rafael Sanzio
-    62: 'images/portraits/p62.jpg',  // Sandro Botticelli
-    64: 'images/portraits/p64.jpg',  // William Shakespeare
-    66: 'images/portraits/p66.jpg',  // Enrique VIII
-    67: 'images/portraits/p67.jpg',  // Luis XIV
-    72: 'images/portraits/p72.jpg',  // Sor Juana Inés de la Cruz
+  // Avatares alegóricos por categoría — sustituyen al canvas en todos los personajes
+  const CATEGORY_AVATARS = {
+    gobernante: 'images/avatars/gobernante.jpg',
+    explorador: 'images/avatars/explorador.jpg',
+    cientifico: 'images/avatars/cientifico.jpg',
+    artista:    'images/avatars/artista.jpg',
+    escritor:   'images/avatars/escritor.jpg',
+    pensador:   'images/avatars/pensador.jpg',
+    inventor:   'images/avatars/inventor.jpg',
+    musico:     'images/avatars/musico.jpg',
+    aventurera: 'images/avatars/aventurera.jpg',
   };
 
   const cache = {};
@@ -736,8 +727,8 @@ const PortraitGenerator = (() => {
 
   function getPortraitURL(personaje, size) {
     if (!personaje) return '';
-    // Si hay retrato AI estático, usarlo directamente
-    if (STATIC_PORTRAITS[personaje.id]) return STATIC_PORTRAITS[personaje.id];
+    // Avatar alegórico por categoría — prioridad sobre el canvas
+    if (CATEGORY_AVATARS[personaje.categoria]) return CATEGORY_AVATARS[personaje.categoria];
     size = size || 120;
     const key = personaje.id + '_' + size;
     if (!cache[key]) {
