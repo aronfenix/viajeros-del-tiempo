@@ -280,13 +280,24 @@ li { margin-bottom: var(--sp-2); }
   position: relative;
   text-align: center;
   padding: var(--sp-16) var(--sp-6) var(--sp-10);
-  background: var(--clr-bg-hero);
+  background: url('images/hero-bg.jpg') center/cover no-repeat;
   overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245,240,255,0.82) 0%, rgba(254,252,243,0.80) 50%, rgba(255,251,235,0.82) 100%);
+  z-index: 0;
+}
+[data-theme="dark"] .hero::before {
+  background: linear-gradient(135deg, rgba(30,27,75,0.87) 0%, rgba(15,23,42,0.90) 50%, rgba(23,37,84,0.87) 100%);
 }
 .hero-particles {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 1;
 }
 .hero-particle {
   position: absolute;
@@ -303,6 +314,7 @@ li { margin-bottom: var(--sp-2); }
 
 .hero-title {
   position: relative;
+  z-index: 2;
   font-family: var(--ff-display);
   font-size: clamp(2rem, 6vw, var(--fs-4xl));
   font-weight: 900;
@@ -336,6 +348,7 @@ li { margin-bottom: var(--sp-2); }
 }
 .hero-subtitle {
   position: relative;
+  z-index: 2;
   font-family: var(--ff-display);
   font-size: var(--fs-xl);
   color: var(--clr-text-soft);
@@ -662,6 +675,17 @@ li { margin-bottom: var(--sp-2); }
 .btn-surprise:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: var(--shadow-md);
+}
+
+/* ---------- Banner Personajes ---------- */
+.banner-personajes {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  object-position: center 40%;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--sp-6);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ---------- Personajes Grid ---------- */
