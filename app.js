@@ -536,7 +536,24 @@
     const markers = Extras.Timeline.getYearMarkers();
     const totalHeight = 700;
 
-    let html = `<div class="timeline-axis" style="height:${totalHeight}px"></div>`;
+    // Century background bands
+    const TL = Extras.Timeline;
+    const centuries = [
+      { img: 'images/timeline/s15.jpg', label: 'Siglo XV',   start: 1400, end: 1500 },
+      { img: 'images/timeline/s16.jpg', label: 'Siglo XVI',  start: 1500, end: 1600 },
+      { img: 'images/timeline/s17.jpg', label: 'Siglo XVII', start: 1600, end: 1700 },
+      { img: 'images/timeline/s18.jpg', label: 'Siglo XVIII',start: 1700, end: 1800 },
+    ];
+    let html = '';
+    centuries.forEach(c => {
+      const top    = (TL.getYearPosition(Math.max(c.start, TL.YEAR_START)) / 100) * totalHeight;
+      const bottom = (TL.getYearPosition(Math.min(c.end,   TL.YEAR_END))   / 100) * totalHeight;
+      html += `<div class="timeline-century" style="top:${top}px;height:${bottom - top}px;background-image:url('${c.img}')">
+        <span class="timeline-century-label">${c.label}</span>
+      </div>`;
+    });
+
+    html += `<div class="timeline-axis" style="height:${totalHeight}px"></div>`;
 
     // Year markers
     markers.forEach(year => {
